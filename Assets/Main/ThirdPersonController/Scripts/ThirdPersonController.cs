@@ -425,7 +425,7 @@ namespace StarterAssets
                 _animator.SetBool(_animIDPicking, true);
             }
 
-            float pickingAnimationDuration = 3.0f;
+            float pickingAnimationDuration = 2.0f;
             yield return new WaitForSeconds(pickingAnimationDuration);
 
             RaycastHit hit;
