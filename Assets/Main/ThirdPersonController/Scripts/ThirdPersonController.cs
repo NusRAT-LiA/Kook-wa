@@ -113,6 +113,9 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
+        // My variables
+        private ObjectPickup objectPickup;
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -153,6 +156,8 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            objectPickup = GetComponent<ObjectPickup>();
         }
 
         private void Update()
@@ -170,6 +175,7 @@ namespace StarterAssets
                 {
                     _isPicking = true;
                     StartCoroutine(TriggerPickingAnimation());
+                    objectPickup.PickupObject();
                 }
             }
         }
@@ -431,6 +437,9 @@ namespace StarterAssets
                 GameObject hitObject = hit.collider.gameObject;
                 // Example of a picking action: print the name of the object
                 Debug.Log("Picked up: " + hitObject.name);
+                
+                // Call PickupObject() function from ObjectPickup script
+                // objectPickup.PickupObject();
             }
 
             // Reset the picking state
@@ -441,6 +450,7 @@ namespace StarterAssets
             {
                 _animator.SetBool(_animIDPicking, false);
             }
+            // objectPickup.PickupObject();
         }
 
     }
