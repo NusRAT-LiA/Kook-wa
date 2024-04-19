@@ -7,6 +7,8 @@ TagManager:
   - CinemachineTarget
   - Log
   - Pickable
+  - FireRock
+  - Fire
   layers:
   - Default
   - TransparentFX
