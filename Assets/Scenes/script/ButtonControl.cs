@@ -1,64 +1,59 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonControl : MonoBehaviour
 {
-    // public GameObject objectToActivate;
     public Button button;
-
     public Slider slider;
-    private int heartNumber = 0;
-    private float scrollSpeed = 0.1f;
-    private float decreaseInterval = 10f; // Decrease interval in seconds
     public TextMeshProUGUI heartNumberUi;
 
-    private void Start()
-    {
-        // Deactivate the button initially
-        // objectToActivate.SetActive(false);
+    private int heartNumber = 2; // Default heart number
+    private float scrollSpeed = 0.1f;
+    private float decreaseInterval = 10f; // Decrease interval in seconds
 
-        // Subscribe to the static collision event
-        MovingObject.OnCollisionEventStatic += OnCollisionEventTriggered;
+    private void Start()
+    {  
+        // Load the saved heartNumber value from PlayerPrefs
+        if (PlayerPrefs.HasKey("Heart"))
+        {
+            heartNumber = PlayerPrefs.GetInt("Heart");
+        }
 
         // Add listener for button click event
         button.onClick.AddListener(OnButtonClick);
-        StartCoroutine(DecreaseHeartCount());
-        heartNumberUi.text = heartNumber.ToString();
         
-        // Set the button as initially uninteractable
-        button.interactable = false;
+        // Start the coroutine to decrease heart count
+        StartCoroutine(DecreaseHeartCount());
+
+        // Set the initial heart number text
+        heartNumberUi.text = heartNumber.ToString();
     }
 
     private void OnDestroy()
     {
-        // Unsubscribe from the static collision event
-        MovingObject.OnCollisionEventStatic -= OnCollisionEventTriggered;
-
         // Remove listener for button click event
         button.onClick.RemoveListener(OnButtonClick);
     }
 
-    private void OnCollisionEventTriggered()
-    {
-        // Activate the button when the collision event is triggered
-        // objectToActivate.SetActive(true);
-
-        // Set the button as interactable when collision occurs
-        button.interactable = true;
-    }
-
     private void OnButtonClick()
     {
+        // Increase heart number when the button is clicked
         heartNumber++;
+        PlayerPrefs.SetInt("Heart", heartNumber); // Save heart number to PlayerPrefs
+
+        // Update UI
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        // Update slider value
         slider.value = CalculateSliderValue();
+
+        // Update heart number text
         heartNumberUi.text = heartNumber.ToString();
-
-        // Deactivate the object when button is clicked
-        // objectToActivate.SetActive(false);
-
-        // Set the button as uninteractable after click
-        button.interactable = false;
     }
 
     private float CalculateSliderValue()
@@ -77,9 +72,18 @@ public class ButtonControl : MonoBehaviour
             // Decrease the heart number
             heartNumber--;
 
-            // Adjust the value of the slider
-            slider.value = CalculateSliderValue();
-            heartNumberUi.text = heartNumber.ToString();
+            // Save heart number to PlayerPrefs
+            PlayerPrefs.SetInt("Heart", heartNumber);
+
+            // Update UI
+            UpdateUI();
+
+            // Check if heartNumber is zero
+            if (heartNumber <= 0)
+            {
+                // Load the home screen scene
+                SceneManager.LoadScene("HomePage");
+            }
         }
     }
 }

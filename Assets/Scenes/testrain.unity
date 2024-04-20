@@ -5633,6 +5633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireParticleSystem: {fileID: 1495001623}
+  rainParticleSystem: {fileID: 1577320787}
 --- !u!198 &1495001623 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1781949194303238864, guid: 4e35892e4c5444340a0e2189311808e5,
@@ -9493,7 +9494,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
