@@ -1,16 +1,18 @@
 using UnityEngine;
+using TMPro;
 
 public class EatingScript : MonoBehaviour
 {
+    public TMP_Text messageText;
+    
     private bool isCooked = false;
     private bool isBeingCooked = false;
-    private float cookingTime = 5.0f; // Adjust as needed, represents how long the object needs to be cooked
+    private float cookingTime = 5.0f;
     private float elapsedTime = 0.0f;
-    private HealthBar healthBar; // Reference to the HealthBar script
+    private HealthBar healthBar;
 
     void Start()
     {
-        // Find the GameObject with the "HealthBar" tag and get the HealthBar component
         GameObject healthBarObject = GameObject.FindWithTag("HealthBar");
         if (healthBarObject != null)
         {
@@ -22,7 +24,6 @@ public class EatingScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isBeingCooked && !isCooked)
@@ -31,18 +32,26 @@ public class EatingScript : MonoBehaviour
             if (elapsedTime >= cookingTime)
             {
                 isCooked = true;
+                if (messageText != null)
+                {
+                    UpdateMessage("Object is cooked!");
+                }
                 Debug.Log("Object is cooked!");
             }
         }
 
         if (isCooked && Input.GetKeyDown(KeyCode.E))
         {
-            if (healthBar != null) // Check if the reference is not null
+            if (healthBar != null)
             {
-                healthBar.IncreaseHeartCount(); // Call IncreaseHeartCount from HealthBar script
+                healthBar.IncreaseHeartCount();
+            }
+            if (messageText != null)
+            {
+                UpdateMessage("Object is eaten!");
             }
             Debug.Log("Object is eaten!");
-            Destroy(gameObject); // Destroy the object after eating
+            Destroy(gameObject);
         }
     }
 
@@ -51,6 +60,10 @@ public class EatingScript : MonoBehaviour
         if (other.CompareTag("Fire") && !isCooked)
         {
             isBeingCooked = true;
+            if (messageText != null)
+            {
+                UpdateMessage("Object is being cooked!");
+            }
             Debug.Log("Object is being cooked!");
         }
     }
@@ -60,7 +73,19 @@ public class EatingScript : MonoBehaviour
         if (other.CompareTag("Fire"))
         {
             isBeingCooked = false;
+            if (messageText != null)
+            {
+                UpdateMessage("Object is no longer being cooked!");
+            }
             Debug.Log("Object is no longer being cooked!");
+        }
+    }
+
+    private void UpdateMessage(string newText)
+    {
+        if (messageText != null)
+        {
+            messageText.text = newText;
         }
     }
 }
