@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HealthBar : MonoBehaviour
 {
@@ -27,10 +28,11 @@ public class HealthBar : MonoBehaviour
 
     private void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.E))
-        // {
-        //     IncreaseHeartCount();
-        // }
+        if(heartNumber==0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+         
     }
 
     public void IncreaseHeartCount()
