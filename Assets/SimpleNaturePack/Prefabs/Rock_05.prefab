@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1576488453968494810}
   - component: {fileID: 1576488453969625626}
   - component: {fileID: 7029523610040634915}
+  - component: {fileID: 8876454841549612563}
   m_Layer: 0
   m_Name: Rock_05
   m_TagString: Untagged
@@ -106,3 +107,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: fa2e670bb3648a84b9df8d16da25b85e, type: 3}
+--- !u!114 &8876454841549612563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576488453971893466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef057b43a026464499e599a18c360c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePrefab: {fileID: 1781949194303238870, guid: 4e35892e4c5444340a0e2189311808e5,
+    type: 3}
+  rainParticleSystem: {fileID: 1888580525251396041, guid: f146af2e4cb2f8fa180880bc20a5c454,
+    type: 3}
