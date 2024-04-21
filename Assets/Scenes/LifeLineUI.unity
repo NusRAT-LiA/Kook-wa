@@ -404,12 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0154b3c197bcf2a4981b083def215236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToActivate: {fileID: 146699620}
   button: {fileID: 146699622}
   slider: {fileID: 1681519653}
-  heartNumber: 0
-  scrollSpeed: 0.1
-  decreaseInterval: 5
   heartNumberUi: {fileID: 960335512}
 --- !u!1 &166922138
 GameObject:
@@ -1328,7 +1324,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -372, y: 147}
+  m_AnchoredPosition: {x: -372, y: 62.7}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681519653
