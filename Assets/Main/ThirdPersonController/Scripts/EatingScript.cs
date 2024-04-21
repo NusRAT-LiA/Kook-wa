@@ -12,11 +12,10 @@ public class EatingScript : MonoBehaviour
     void Start()
     {
         GameObject healthBarObject = GameObject.FindWithTag("HealthBar");
-        Debug.Log(healthBarObject);
+        // Debug.Log(healthBarObject);
         
         if (healthBarObject != null)
         {
-            Debug.Log("Kaaaj");
             healthBar = healthBarObject.GetComponent<HealthBar>();
         }
         else
@@ -27,8 +26,6 @@ public class EatingScript : MonoBehaviour
 
     void Update()
     {
-        // Check if textObject is null and attempt to find it again
-
         if (isBeingCooked && !isCooked)
         {
             elapsedTime += Time.deltaTime;
@@ -43,7 +40,7 @@ public class EatingScript : MonoBehaviour
         {
             if (healthBar != null)
             {
-                Debug.Log("Baree na");
+                Debug.Log("Hello");
                 healthBar.IncreaseHeartCount();
             }
             

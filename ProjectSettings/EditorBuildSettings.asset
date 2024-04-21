@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SimpleNaturePack/Scenes/MainScene 1.unity
     guid: 37fae796617947443858fb232e192df3
+  - enabled: 1
+    path: Assets/SimpleNaturePack/Scenes/GameOver.unity
+    guid: 00bd124268c43e581a26e6847b0b578d
   m_configObjects: {}

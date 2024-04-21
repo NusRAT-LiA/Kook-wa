@@ -37,9 +37,11 @@ public class HealthBar : MonoBehaviour
 
     public void IncreaseHeartCount()
     {
+        Debug.Log("KI");
         heartNumber++;
-        SaveHeartNumber(); // Save heart number to PlayerPrefs
         UpdateUI();
+        SaveHeartNumber(); // Save heart number to PlayerPrefs
+        
     }
 
     private void SaveHeartNumber()
@@ -70,8 +72,9 @@ public class HealthBar : MonoBehaviour
             if (heartNumber > 0)
             {
                 heartNumber--;
-                SaveHeartNumber(); // Save heart number to PlayerPrefs
                 UpdateUI();
+                SaveHeartNumber(); // Save heart number to PlayerPrefs
+                
             }
         }
     }

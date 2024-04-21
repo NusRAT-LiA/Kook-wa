@@ -26,13 +26,13 @@ public class FireScript : MonoBehaviour
         currentFire = Instantiate(firePrefab, logPosition, Quaternion.identity);
         Debug.Log(currentFire);
 
-        Destroy(currentFire, 100.0f);
+        Destroy(currentFire, 25.0f);
 
         // Deactivate the wood stick GameObject
         gameObject.SetActive(false);
 
         // Destroy the log GameObject
-        Destroy(collision.gameObject, 100.0f); // Destroy the log object
+        Destroy(collision.gameObject, 25.0f); // Destroy the log object
 
         // Disable grabbing for the log object
         ObjectGrabable grabable = collision.gameObject.GetComponent<ObjectGrabable>();
