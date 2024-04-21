@@ -6,7 +6,7 @@ public class HomePage : MonoBehaviour
     public void ResumeGame()
     {
         // Load the scene where the player left off
-        SceneManager.LoadScene("LifeLineUI");
+        SceneManager.LoadScene("MainScene 1");
     }
 
     public void NewGame()
@@ -16,7 +16,7 @@ public class HomePage : MonoBehaviour
         PlayerPrefs.DeleteAll();
         
         // Load the initial game scene
-        SceneManager.LoadScene("LifeLineUI");
+        SceneManager.LoadScene("MainScene 1");
     }
 
     
@@ -25,5 +25,14 @@ public class HomePage : MonoBehaviour
     {
         // Quit the application
         Application.Quit();
+    }
+
+    public void exitFromScreen()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("HomePage");
+            
+        }
     }
 }

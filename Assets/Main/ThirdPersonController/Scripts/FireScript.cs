@@ -5,6 +5,8 @@ using UnityEngine;
 public class FireScript : MonoBehaviour
 {
     public GameObject firePrefab;
+    public ParticleSystem rainParticleSystem;
+
 
     void OnCollisionEnter(Collision collision)
     {
@@ -27,6 +29,18 @@ public class FireScript : MonoBehaviour
                 grabable.Activate();
             }
         }
+
+        void Update()
+    {
+        // If it's raining, stop the fire particle system
+        if (rainParticleSystem.isEmitting)
+        {
+            
+                firePrefab.SetActive(false);
+            
+        }
+        
+    }
     }
 
 

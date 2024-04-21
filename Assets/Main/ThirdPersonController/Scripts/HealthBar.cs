@@ -9,13 +9,20 @@ public class HealthBar : MonoBehaviour
     public Slider slider;
     private int heartNumber = 2;
     private float scrollSpeed = 0.1f;
-    private float decreaseInterval = 10f; // Decrease interval in seconds
+    private float decreaseInterval = 5f; // Decrease interval in seconds
     public TextMeshProUGUI heartNumberUi;
+    private string heartNumberKey = "Heart";
 
     private void Start()
     {
+        // Load heart number from PlayerPrefs if it exists
+        if (PlayerPrefs.HasKey(heartNumberKey))
+        {
+            heartNumber = PlayerPrefs.GetInt(heartNumberKey);
+        }
+
         StartCoroutine(DecreaseHeartCount());
-        // heartNumberUi.text = heartNumber.ToString();
+        heartNumberUi.text = heartNumber.ToString();
     }
 
     private void Update()
@@ -29,20 +36,19 @@ public class HealthBar : MonoBehaviour
     public void IncreaseHeartCount()
     {
         heartNumber++;
-        slider.value = CalculateSliderValue();
-        heartNumberUi.text = heartNumber.ToString();
+        SaveHeartNumber(); // Save heart number to PlayerPrefs
+        UpdateUI();
     }
 
-    private void OnButtonClick()
+    private void SaveHeartNumber()
     {
-        heartNumber++;
+        PlayerPrefs.SetInt(heartNumberKey, heartNumber);
+    }
+
+    private void UpdateUI()
+    {
         slider.value = CalculateSliderValue();
         heartNumberUi.text = heartNumber.ToString();
-        // Deactivate the object when button is clicked
-        // objectToActivate.SetActive(false);
-
-        // Set the button as uninteractable after click
-        // button.interactable = false;
     }
 
     private float CalculateSliderValue()
@@ -59,14 +65,12 @@ public class HealthBar : MonoBehaviour
             yield return new WaitForSeconds(decreaseInterval);
 
             // Decrease the heart number
-            if(heartNumber>0){
+            if (heartNumber > 0)
+            {
                 heartNumber--;
+                SaveHeartNumber(); // Save heart number to PlayerPrefs
+                UpdateUI();
             }
-            // heartNumber--;
-
-            // Adjust the value of the slider
-            slider.value = CalculateSliderValue();
-            heartNumberUi.text = heartNumber.ToString();
         }
     }
 }
