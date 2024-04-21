@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour
     public Slider slider;
     private int heartNumber = 3;
     private float scrollSpeed = 0.1f;
-    private float decreaseInterval = 60f; // Decrease interval in seconds
+    private float decreaseInterval = 40f; // Decrease interval in seconds
     public TextMeshProUGUI heartNumberUi;
     private string heartNumberKey = "Heart";
 
