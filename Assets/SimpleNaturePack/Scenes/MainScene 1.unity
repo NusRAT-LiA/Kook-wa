@@ -24830,7 +24830,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 668600261}
-  heartNumberUi: {fileID: 1609371658}
 --- !u!114 &668600261 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5140408126030180978, guid: 83ee54de31f6b8743ac6d12548b389b7,
@@ -32690,7 +32689,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 866178972}
-  heartNumberUi: {fileID: 53378082}
 --- !u!114 &866178972 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5140408126030180978, guid: 83ee54de31f6b8743ac6d12548b389b7,
@@ -45493,7 +45491,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1220180482}
-  heartNumberUi: {fileID: 1309196739}
 --- !u!1 &1220546350
 GameObject:
   m_ObjectHideFlags: 0
@@ -50973,7 +50970,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8944336655422409497, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
@@ -80162,6 +80160,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: HealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 6841246409729537074, guid: 83ee54de31f6b8743ac6d12548b389b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: HeartNumText
+      objectReference: {fileID: 0}
     - target: {fileID: 7710369946936307561, guid: 83ee54de31f6b8743ac6d12548b389b7,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -80170,6 +80173,16 @@ PrefabInstance:
     - target: {fileID: 7710369946936307561, guid: 83ee54de31f6b8743ac6d12548b389b7,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196959734679846732, guid: 83ee54de31f6b8743ac6d12548b389b7,
+        type: 3}
+      propertyPath: m_text
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196959734679846732, guid: 83ee54de31f6b8743ac6d12548b389b7,
+        type: 3}
+      propertyPath: m_isRightToLeft
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -81713,6 +81726,7 @@ GameObject:
   - component: {fileID: 4416926081385725204}
   - component: {fileID: 6982812146676202969}
   - component: {fileID: 6982812146676202970}
+  - component: {fileID: 6982812146676202971}
   m_Layer: 3
   m_Name: PlayerArmature
   m_TagString: Player
@@ -83004,6 +83018,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 51
   ObjectGrabPointTransform: {fileID: 268285556}
+--- !u!81 &6982812146676202971
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926081385725208}
+  m_Enabled: 1
 --- !u!4 &6983258931921011969
 Transform:
   m_ObjectHideFlags: 0

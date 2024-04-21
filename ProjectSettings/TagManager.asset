@@ -12,6 +12,7 @@ TagManager:
   - HealthBar
   - Text
   - RainControl
+  - HeartNumText
   layers:
   - Default
   - TransparentFX

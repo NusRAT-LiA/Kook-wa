@@ -24,7 +24,7 @@ public class FireScript : MonoBehaviour
 
         // Instantiate fire at the position of the log
         currentFire = Instantiate(firePrefab, logPosition, Quaternion.identity);
-        Debug.Log(currentFire);
+        // Debug.Log(currentFire);
 
         Destroy(currentFire, 25.0f);
 

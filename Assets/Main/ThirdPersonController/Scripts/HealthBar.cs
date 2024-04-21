@@ -11,37 +11,45 @@ public class HealthBar : MonoBehaviour
     private int heartNumber = 3;
     private float scrollSpeed = 0.1f;
     private float decreaseInterval = 40f; // Decrease interval in seconds
-    public TextMeshProUGUI heartNumberUi;
+    private TextMeshProUGUI heartNumberUi;
     private string heartNumberKey = "Heart";
 
     private void Start()
     {
         // Load heart number from PlayerPrefs if it exists
-        if (PlayerPrefs.GetInt(heartNumberKey)>0)
-        {
-            heartNumber = PlayerPrefs.GetInt(heartNumberKey);
-        }
+        // if (PlayerPrefs.GetInt(heartNumberKey) > 0)
+        // {
+        //     heartNumber = PlayerPrefs.GetInt(heartNumberKey);
+        // }
 
         StartCoroutine(DecreaseHeartCount());
-        heartNumberUi.text = heartNumber.ToString();
+        GameObject healthNumTextObject = GameObject.FindGameObjectWithTag("HeartNumText");
+        if (healthNumTextObject != null)
+        {
+            heartNumberUi = healthNumTextObject.GetComponent<TextMeshProUGUI>();
+            heartNumberUi.text = heartNumber.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("TextMeshProUGUI object not found with the tag 'HealthNumText'. Make sure it's tagged correctly.");
+        }
     }
 
     private void Update()
     {
-        if(heartNumber==0)
+        if (heartNumber == 0)
         {
             SceneManager.LoadScene("GameOver");
         }
-         
+
     }
 
     public void IncreaseHeartCount()
     {
-        Debug.Log("KI");
         heartNumber++;
-        UpdateUI();
         SaveHeartNumber(); // Save heart number to PlayerPrefs
-        
+        UpdateUI();
+
     }
 
     private void SaveHeartNumber()
@@ -51,8 +59,17 @@ public class HealthBar : MonoBehaviour
 
     private void UpdateUI()
     {
+        Debug.Log(slider.value);
         slider.value = CalculateSliderValue();
-        heartNumberUi.text = heartNumber.ToString();
+        if (heartNumberUi != null)
+        {
+            heartNumberUi.text = heartNumber.ToString();
+            // Canvas.ForceUpdateCanvases();
+        }
+        else
+        {
+            Debug.LogWarning("TextMeshProUGUI object not found. Cannot update UI.");
+        }
     }
 
     private float CalculateSliderValue()
@@ -72,9 +89,8 @@ public class HealthBar : MonoBehaviour
             if (heartNumber > 0)
             {
                 heartNumber--;
-                UpdateUI();
                 SaveHeartNumber(); // Save heart number to PlayerPrefs
-                
+                UpdateUI();
             }
         }
     }

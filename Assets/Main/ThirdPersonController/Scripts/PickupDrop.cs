@@ -28,14 +28,13 @@ public class PickupDrop : MonoBehaviour
                     if (raycastHit.transform.TryGetComponent(out objectGrabable))
                     {
                         objectGrabable.Grab(ObjectGrabPointTransform);
-                        Debug.Log(raycastHit.transform);
+                        // Debug.Log(raycastHit.transform);
                     }
                 }
 
             }
             else{
                 objectGrabable.Drop();
-                Debug.Log("Falacchi");
                 objectGrabable = null;
             }
 

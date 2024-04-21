@@ -40,7 +40,6 @@ public class EatingScript : MonoBehaviour
         {
             if (healthBar != null)
             {
-                Debug.Log("Hello");
                 healthBar.IncreaseHeartCount();
             }
             
