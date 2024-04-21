@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -177,6 +178,11 @@ namespace StarterAssets
                     StartCoroutine(TriggerPickingAnimation());
                     objectPickup.PickupObject();
                 }
+            }
+
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene("HomePage");
             }
         }
 
@@ -437,7 +443,7 @@ namespace StarterAssets
                 GameObject hitObject = hit.collider.gameObject;
                 // Example of a picking action: print the name of the object
                 Debug.Log("Picked up: " + hitObject.name);
-                
+
                 // Call PickupObject() function from ObjectPickup script
                 // objectPickup.PickupObject();
             }

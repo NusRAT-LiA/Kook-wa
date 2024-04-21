@@ -7,16 +7,16 @@ using TMPro;
 public class HealthBar : MonoBehaviour
 {
     public Slider slider;
-    private int heartNumber = 2;
+    private int heartNumber = 3;
     private float scrollSpeed = 0.1f;
-    private float decreaseInterval = 5f; // Decrease interval in seconds
+    private float decreaseInterval = 60f; // Decrease interval in seconds
     public TextMeshProUGUI heartNumberUi;
     private string heartNumberKey = "Heart";
 
     private void Start()
     {
         // Load heart number from PlayerPrefs if it exists
-        if (PlayerPrefs.HasKey(heartNumberKey))
+        if (PlayerPrefs.GetInt(heartNumberKey)>0)
         {
             heartNumber = PlayerPrefs.GetInt(heartNumberKey);
         }

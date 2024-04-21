@@ -160,5 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef057b43a026464499e599a18c360c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePrefab: {fileID: 1781949194303238870, guid: 4e35892e4c5444340a0e2189311808e5,
+  firePrefab: {fileID: 1781949194303238864, guid: 4e35892e4c5444340a0e2189311808e5,
+    type: 3}
+  rainParticleSystem: {fileID: 1888580525251396041, guid: f146af2e4cb2f8fa180880bc20a5c454,
     type: 3}

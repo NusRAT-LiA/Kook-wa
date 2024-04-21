@@ -5456,6 +5456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePrefab: {fileID: 1781949194303238870, guid: 4e35892e4c5444340a0e2189311808e5,
     type: 3}
+  rainParticleSystem: {fileID: 0}
 --- !u!1001 &209729022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5711,6 +5712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePrefab: {fileID: 1781949194303238870, guid: 4e35892e4c5444340a0e2189311808e5,
     type: 3}
+  rainParticleSystem: {fileID: 0}
 --- !u!1001 &233023299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15709,6 +15711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePrefab: {fileID: 1781949194303238870, guid: 4e35892e4c5444340a0e2189311808e5,
     type: 3}
+  rainParticleSystem: {fileID: 0}
 --- !u!114 &849478681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17171,6 +17174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757830510359189757, guid: 494f6d43e170e9145bc7865d243ee00b,
+        type: 3}
+      propertyPath: textValue
+      value: helloee
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24075,7 +24083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -25148,6 +25156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePrefab: {fileID: 1781949194303238870, guid: 4e35892e4c5444340a0e2189311808e5,
     type: 3}
+  rainParticleSystem: {fileID: 0}
 --- !u!4 &1434268336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4385080170327957909, guid: ff62b58c5a9ea164fa8ddf8038e10cd1,
@@ -30946,6 +30955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePrefab: {fileID: 1781949194303238870, guid: 4e35892e4c5444340a0e2189311808e5,
     type: 3}
+  rainParticleSystem: {fileID: 0}
 --- !u!4 &1794702026 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1576488453971394810, guid: a778b631c6253a04899cb31bad047c81,
@@ -37914,7 +37924,7 @@ PrefabInstance:
     - target: {fileID: 3627518465587678505, guid: 83ee54de31f6b8743ac6d12548b389b7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -342
+      value: 10.2
       objectReference: {fileID: 0}
     - target: {fileID: 3627518465587678505, guid: 83ee54de31f6b8743ac6d12548b389b7,
         type: 3}
@@ -41713,6 +41723,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Text (TMP)
       objectReference: {fileID: 0}
+    - target: {fileID: 1579419921259443100, guid: 180d51e192a09a747947e07eeb9c18d0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579419921259443100, guid: 180d51e192a09a747947e07eeb9c18d0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559948813957351771, guid: 180d51e192a09a747947e07eeb9c18d0,
+        type: 3}
+      propertyPath: m_text
+      value: Food is Cooked!!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559948813957351771, guid: 180d51e192a09a747947e07eeb9c18d0,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559948813957351771, guid: 180d51e192a09a747947e07eeb9c18d0,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 9127385738425224429, guid: 180d51e192a09a747947e07eeb9c18d0,
         type: 3}
       propertyPath: m_Pivot.x
@@ -41791,12 +41826,12 @@ PrefabInstance:
     - target: {fileID: 9127385738425224429, guid: 180d51e192a09a747947e07eeb9c18d0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 28
+      value: -285
       objectReference: {fileID: 0}
     - target: {fileID: 9127385738425224429, guid: 180d51e192a09a747947e07eeb9c18d0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 167
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 9127385738425224429, guid: 180d51e192a09a747947e07eeb9c18d0,
         type: 3}

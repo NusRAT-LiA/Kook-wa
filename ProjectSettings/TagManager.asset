@@ -10,6 +10,8 @@ TagManager:
   - FireRock
   - Fire
   - HealthBar
+  - Text
+  - RainControl
   layers:
   - Default
   - TransparentFX

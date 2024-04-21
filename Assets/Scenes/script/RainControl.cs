@@ -6,8 +6,8 @@ public class RainControl : MonoBehaviour
     public AudioSource rainAudioSource;
     public AudioSource lightning;
     private float rainDuration = 10f; // Duration of rain in seconds
-    private float timeBetweenRains = 30f;// Delay time in seconds
-    private bool isRaining = false;
+    private float timeBetweenRains = 10f;// Delay time in seconds
+     private bool isRaining = false;
 
     private void Start()
     {   
@@ -68,6 +68,11 @@ public class RainControl : MonoBehaviour
         lightning.Stop();
 
         isRaining = false;
+    }
+
+    public bool IsRaining()
+    {
+        return isRaining;
     }
 
 }
