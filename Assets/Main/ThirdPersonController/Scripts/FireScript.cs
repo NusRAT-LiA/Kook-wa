@@ -9,28 +9,23 @@ public class FireScript : MonoBehaviour
     private GameObject currentFire;
     private GameObject collidedObject;
 
-    void OnCollisionEnter(Collision collision)
+    public void TriggerFire(GameObject logObject)
     {
-        // Check if the collision is with the log
-        if (collision.gameObject.CompareTag("Log"))
+        // Check if the provided object is not null
+        if (logObject != null)
         {
-            Vector3 logPosition = collision.gameObject.transform.position;
-
+            Vector3 logPosition = logObject.transform.position;
             InstantiateFire(logPosition);
-            Debug.Log(currentFire);
 
-            collidedObject = collision.gameObject;
+            collidedObject = logObject;
 
-            Destroy(collidedObject, 25.0f); // Destroy the log object
-
-            // Disable grabbing for the log object
-            ObjectGrabable grabable = collidedObject.GetComponent<ObjectGrabable>();
+            ObjectGrabable grabable = logObject.GetComponent<ObjectGrabable>();
             if (grabable != null)
             {
                 grabable.Activate();
             }
 
-            SetFireInactive();
+            Destroy(logObject, 25.0f);
         }
     }
 
