@@ -22,9 +22,10 @@ public class PickupDrop : MonoBehaviour
         {
             if (objectGrabable == null)
             {
-                float pickupDistance = 5.1f;
+                float pickupDistance = 6f;
                 if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickupDistance, pickUpLayerMask))
                 {
+                    Debug.Log("Legeche");
                     if (raycastHit.transform.TryGetComponent(out objectGrabable))
                     {
                         objectGrabable.Grab(ObjectGrabPointTransform);

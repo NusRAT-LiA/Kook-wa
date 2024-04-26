@@ -6,50 +6,75 @@ public class FireScript : MonoBehaviour
 {
     public GameObject firePrefab;
     public ParticleSystem rainParticleSystem;
-    private RainControl rainControl;
     private GameObject currentFire;
-
-    void Start()
-    {
-        rainControl = GameObject.FindWithTag("RainControl").GetComponent<RainControl>();
-    }
+    private GameObject collidedObject;
 
     void OnCollisionEnter(Collision collision)
-{
-    // Check if the collision is with the log
-    if (collision.gameObject.CompareTag("Log"))
     {
-        // Get the position of the log
-        Vector3 logPosition = collision.gameObject.transform.position;
-
-        // Instantiate fire at the position of the log
-        currentFire = Instantiate(firePrefab, logPosition, Quaternion.identity);
-        // Debug.Log(currentFire);
-
-        Destroy(currentFire, 25.0f);
-
-        // Deactivate the wood stick GameObject
-        gameObject.SetActive(false);
-
-        // Destroy the log GameObject
-        Destroy(collision.gameObject, 25.0f); // Destroy the log object
-
-        // Disable grabbing for the log object
-        ObjectGrabable grabable = collision.gameObject.GetComponent<ObjectGrabable>();
-        if (grabable != null)
+        // Check if the collision is with the log
+        if (collision.gameObject.CompareTag("Log"))
         {
-            grabable.Activate();
+            Vector3 logPosition = collision.gameObject.transform.position;
+
+            InstantiateFire(logPosition);
+            Debug.Log(currentFire);
+
+            collidedObject = collision.gameObject;
+
+            Destroy(collidedObject, 25.0f); // Destroy the log object
+
+            // Disable grabbing for the log object
+            ObjectGrabable grabable = collidedObject.GetComponent<ObjectGrabable>();
+            if (grabable != null)
+            {
+                grabable.Activate();
+            }
+
+            SetFireInactive();
         }
     }
-}
 
     void Update()
     {
-        // If it's raining and there's a fire, stop the fire particle system
-        if (rainControl != null && rainControl.IsRaining() && currentFire != null)
+        if (rainParticleSystem != null && rainParticleSystem.isPlaying)
         {
-            Destroy(currentFire);
-            currentFire = null; // Set currentFire to null after destroying the fire
+            // If fire exists, extinguish it
+            if (currentFire != null)
+            {
+                ExtinguishFire();
+                if (collidedObject != null)
+                {
+                    Destroy(collidedObject, 0.1f);
+                }
+            }
+        }
+    }
+
+    private void InstantiateFire(Vector3 position)
+    {
+        // Instantiate fire prefab at the collision position
+        currentFire = Instantiate(firePrefab, position, Quaternion.identity);
+    }
+
+    private void ExtinguishFire()
+    {
+        Debug.Log(currentFire);
+        Destroy(currentFire);
+        currentFire = null;
+    }
+
+    private void SetFireInactive()
+    {
+        Collider collider = GetComponent<Collider>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
+
+        Renderer renderer = GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            renderer.enabled = false;
         }
     }
 }
