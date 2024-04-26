@@ -98,7 +98,9 @@ namespace StarterAssets
         private int _animIDGrounded;
         private int _animIDJump;
         private int _animIDPicking;
+        private int _animIDCastSpell;
         private bool _isPicking;
+        private bool _isCastingSpell;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
@@ -178,6 +180,11 @@ namespace StarterAssets
                     StartCoroutine(TriggerPickingAnimation());
                     objectPickup.PickupObject();
                 }
+
+                if (Keyboard.current.tKey.wasPressedThisFrame && !_isCastingSpell)
+                {
+                    StartCoroutine(TriggerSpellAnimation());
+                }
             }
 
             if (Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -197,6 +204,7 @@ namespace StarterAssets
             _animIDGrounded = Animator.StringToHash("Grounded");
             _animIDJump = Animator.StringToHash("Jump");
             _animIDPicking = Animator.StringToHash("Picking");
+            _animIDCastSpell = Animator.StringToHash("Spell");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
         }
@@ -457,6 +465,29 @@ namespace StarterAssets
                 _animator.SetBool(_animIDPicking, false);
             }
             // objectPickup.PickupObject();
+        }
+
+        private IEnumerator TriggerSpellAnimation()
+        {
+            // Set the casting spell parameter to true to trigger the animation
+            if (_hasAnimator)
+            {
+                _animator.SetBool(_animIDCastSpell, true);
+            }
+
+            // Set the flag to indicate that the spell is currently being cast
+            _isCastingSpell = true;
+
+            // Wait for the duration of the casting animation
+            float spellAnimationDuration = 2.0f; // Adjust this value as per your animation duration
+            yield return new WaitForSeconds(spellAnimationDuration);
+
+            // Reset the flag and the casting spell parameter to false to reset the animation state
+            _isCastingSpell = false;
+            if (_hasAnimator)
+            {
+                _animator.SetBool(_animIDCastSpell, false);
+            }
         }
 
     }

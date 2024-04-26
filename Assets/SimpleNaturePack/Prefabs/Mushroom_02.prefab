@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5134400802690279914}
   - component: {fileID: 182971137813328918}
   - component: {fileID: 6757830510359189757}
+  - component: {fileID: 4379111864035447551}
   m_Layer: 0
   m_Name: Mushroom_02
   m_TagString: Pickable
@@ -260,6 +261,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885e23db07106a3458e6cf79b420c60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4379111864035447551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440707293445505367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9a9c83c73abde4abeded010aab40dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSO: {fileID: 11400000, guid: 25fbbd810f7bdad4dac1ad4466f18f89, type: 2}
 --- !u!1 &8258542438926114849
 GameObject:
   m_ObjectHideFlags: 0

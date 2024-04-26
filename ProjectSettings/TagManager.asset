@@ -13,6 +13,7 @@ TagManager:
   - Text
   - RainControl
   - HeartNumText
+  - DropPosition
   layers:
   - Default
   - TransparentFX

@@ -10,17 +10,18 @@ public class HealthBar : MonoBehaviour
     public Slider slider;
     private int heartNumber = 3;
     private float scrollSpeed = 0.1f;
-    private float decreaseInterval = 40f; // Decrease interval in seconds
+    private float decreaseInterval = 30f; // Decrease interval in seconds
     private TextMeshProUGUI heartNumberUi;
     private string heartNumberKey = "Heart";
 
+    // DecreaseHeartCount();
     private void Start()
     {
         // Load heart number from PlayerPrefs if it exists
-        // if (PlayerPrefs.GetInt(heartNumberKey) > 0)
-        // {
-        //     heartNumber = PlayerPrefs.GetInt(heartNumberKey);
-        // }
+        if (PlayerPrefs.GetInt(heartNumberKey) > 0)
+        {
+            heartNumber = PlayerPrefs.GetInt(heartNumberKey);
+        }
 
         StartCoroutine(DecreaseHeartCount());
         GameObject healthNumTextObject = GameObject.FindGameObjectWithTag("HeartNumText");
@@ -33,6 +34,7 @@ public class HealthBar : MonoBehaviour
         {
             Debug.LogWarning("TextMeshProUGUI object not found with the tag 'HealthNumText'. Make sure it's tagged correctly.");
         }
+        slider.value = CalculateSliderValue();
     }
 
     private void Update()
@@ -46,8 +48,9 @@ public class HealthBar : MonoBehaviour
 
     public void IncreaseHeartCount()
     {
+        
         heartNumber++;
-        SaveHeartNumber(); // Save heart number to PlayerPrefs
+        SaveHeartNumber();
         UpdateUI();
 
     }
@@ -59,7 +62,7 @@ public class HealthBar : MonoBehaviour
 
     private void UpdateUI()
     {
-        Debug.Log(slider.value);
+        // Debug.Log(slider.value);
         slider.value = CalculateSliderValue();
         if (heartNumberUi != null)
         {
@@ -88,9 +91,12 @@ public class HealthBar : MonoBehaviour
             // Decrease the heart number
             if (heartNumber > 0)
             {
+                // Debug.Log("Pre Decrease heart num: "+heartNumber);
                 heartNumber--;
+                // Debug.Log("Decreased heart num: "+heartNumber);
                 SaveHeartNumber(); // Save heart number to PlayerPrefs
                 UpdateUI();
+                
             }
         }
     }
