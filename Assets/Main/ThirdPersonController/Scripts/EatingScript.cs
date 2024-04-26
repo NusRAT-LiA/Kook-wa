@@ -1,19 +1,17 @@
 using UnityEngine;
-using TMPro;
 
 public class EatingScript : MonoBehaviour
 {
     private bool isCooked = false;
     private bool isBeingCooked = false;
-    private float cookingTime = 5.0f;
+    private float cookingTime = 5.0f; // Adjust as needed, represents how long the object needs to be cooked
     private float elapsedTime = 0.0f;
-    private HealthBar healthBar;
+    private HealthBar healthBar; // Reference to the HealthBar script
 
     void Start()
     {
+        // Find the GameObject with the "HealthBar" tag and get the HealthBar component
         GameObject healthBarObject = GameObject.FindWithTag("HealthBar");
-        // Debug.Log(healthBarObject);
-        
         if (healthBarObject != null)
         {
             healthBar = healthBarObject.GetComponent<HealthBar>();
@@ -24,6 +22,7 @@ public class EatingScript : MonoBehaviour
         }
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (isBeingCooked && !isCooked)
@@ -38,13 +37,12 @@ public class EatingScript : MonoBehaviour
 
         if (isCooked && Input.GetKeyDown(KeyCode.E))
         {
-            if (healthBar != null)
+            if (healthBar != null) // Check if the reference is not null
             {
-                healthBar.IncreaseHeartCount();
+                healthBar.IncreaseHeartCount(); // Call IncreaseHeartCount from HealthBar script
             }
-            
             Debug.Log("Object is eaten!");
-            Destroy(gameObject);
+            Destroy(gameObject); // Destroy the object after eating
         }
     }
 
