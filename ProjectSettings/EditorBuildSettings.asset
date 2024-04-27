@@ -15,6 +15,21 @@ EditorBuildSettings:
     path: Assets/SimpleNaturePack/Scenes/MainScene 1.unity
     guid: 37fae796617947443858fb232e192df3
   - enabled: 1
+    path: Assets/SimpleNaturePack/Scenes/Level2.unity
+    guid: 81f0879e21d6b654294f7ca7836b53ae
+  - enabled: 1
+    path: Assets/SimpleNaturePack/Scenes/MainScene 2.unity
+    guid: 517bc426135d3254a941b89c51a4f0de
+  - enabled: 1
+    path: Assets/SimpleNaturePack/Scenes/Level3.unity
+    guid: 83f0e14f242094f42a1564fd962ed46c
+  - enabled: 1
+    path: Assets/SimpleNaturePack/Scenes/MainScene 3.unity
+    guid: da89c9153069c7747a37f2450cdfa07f
+  - enabled: 1
+    path: Assets/SimpleNaturePack/Scenes/Winner.unity
+    guid: 4a3bd4021b6c83a4d95b319fe4fe8600
+  - enabled: 1
     path: Assets/SimpleNaturePack/Scenes/GameOver.unity
     guid: 00bd124268c43e581a26e6847b0b578d
   m_configObjects: {}

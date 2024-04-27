@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 62bd9b1163f44ad44b3d6b50199c9957, type: 3}
   name: Burger
-  prefab: {fileID: 4000011445454492, guid: 8155176e03f33f44884efb0dd767197c, type: 3}
+  prefab: {fileID: 7199126225468038414, guid: 5cb2a0467177476419985fbb1654f80d, type: 3}

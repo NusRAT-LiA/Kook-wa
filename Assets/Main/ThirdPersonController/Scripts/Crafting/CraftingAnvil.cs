@@ -13,6 +13,12 @@ public class CraftingAnvil : MonoBehaviour
 
     private CraftingRecipeSO craftingRecipeSO;
 
+    // public bool isPotion;
+
+    // private void Start() {
+    //     isPotion = false;
+    // }
+
     private void Awake()
     {
         NextRecipe();

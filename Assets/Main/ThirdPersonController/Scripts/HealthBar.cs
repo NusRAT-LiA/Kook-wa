@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class HealthBar : MonoBehaviour
 {
     public Slider slider;
-    private int heartNumber = 3;
+    public int heartNumber;
     private float scrollSpeed = 0.1f;
     private float decreaseInterval = 30f; // Decrease interval in seconds
     private TextMeshProUGUI heartNumberUi;
@@ -17,11 +17,6 @@ public class HealthBar : MonoBehaviour
     // DecreaseHeartCount();
     private void Start()
     {
-        // Load heart number from PlayerPrefs if it exists
-        if (PlayerPrefs.GetInt(heartNumberKey) > 0)
-        {
-            heartNumber = PlayerPrefs.GetInt(heartNumberKey);
-        }
 
         StartCoroutine(DecreaseHeartCount());
         GameObject healthNumTextObject = GameObject.FindGameObjectWithTag("HeartNumText");
@@ -50,6 +45,14 @@ public class HealthBar : MonoBehaviour
     {
         
         heartNumber++;
+        SaveHeartNumber();
+        UpdateUI();
+
+    }
+    public void DecreaseHeart()
+    {
+        
+        heartNumber--;
         SaveHeartNumber();
         UpdateUI();
 

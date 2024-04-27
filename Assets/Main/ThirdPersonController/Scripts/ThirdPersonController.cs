@@ -178,13 +178,13 @@ namespace StarterAssets
                 {
                     _isPicking = true;
                     StartCoroutine(TriggerPickingAnimation());
-                    objectPickup.PickupObject();
+                    // objectPickup.PickupObject();
                 }
 
-                if (Keyboard.current.tKey.wasPressedThisFrame && !_isCastingSpell)
-                {
-                    StartCoroutine(TriggerSpellAnimation());
-                }
+                // if (Keyboard.current.tKey.wasPressedThisFrame && !_isCastingSpell)
+                // {
+                //     StartCoroutine(TriggerSpellAnimation());
+                // }
             }
 
             if (Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -469,20 +469,15 @@ namespace StarterAssets
 
         private IEnumerator TriggerSpellAnimation()
         {
-            // Set the casting spell parameter to true to trigger the animation
             if (_hasAnimator)
             {
                 _animator.SetBool(_animIDCastSpell, true);
             }
-
-            // Set the flag to indicate that the spell is currently being cast
             _isCastingSpell = true;
 
-            // Wait for the duration of the casting animation
-            float spellAnimationDuration = 2.0f; // Adjust this value as per your animation duration
+            float spellAnimationDuration = 1.0f;
             yield return new WaitForSeconds(spellAnimationDuration);
 
-            // Reset the flag and the casting spell parameter to false to reset the animation state
             _isCastingSpell = false;
             if (_hasAnimator)
             {
