@@ -24,6 +24,6 @@ Game Theme - It's Hard to cook without deadly spells.
 
 ## Your Journey:
 
-Explore the island, face challenges, and survive to become the ultimate victor. Good luck, and may the odds be ever in your favor!
+Explore the island, face challenges, and survive to become the ultimate victor. Good luck, and may the odds be ever in your favor! Click on the video to see the gameplay.
 
 [![Gameplay Video](https://img.youtube.com/vi/skUOGGozj-A/0.jpg)](https://www.youtube.com/watch?v=skUOGGozj-A)
