@@ -1,6 +1,7 @@
 # Survival-Game [ Made in Unity ]
 
 This is a major collaboration project. The collaboration is done here - [ https://github.com/Hack-it-Rafi/Survival-Game ]
+
 Game Theme - It's Hard to cook without deadly spells.
 
 ## Gameplay Instructions:
